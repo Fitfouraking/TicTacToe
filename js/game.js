@@ -3,7 +3,6 @@
 
 var players = ["X", "O"];
 
-
 $(document).ready(function(){
   var player = 0;
   var count = 0;
@@ -49,6 +48,7 @@ $(document).ready(function(){
     $('#e').text() === "X" &&
     $('#g').text() === "X") {
         alert("X has won the game");
+        reset();
       };
   };
 
@@ -85,7 +85,14 @@ $(document).ready(function(){
     $('#e').text() === "O" &&
     $('#g').text() === "O") {
         alert("O has won the game");
+        reset();
       };
   };
 
-});
+  var reset = function() {
+  $('.cell').text("");
+  count = 0;
+  };
+
+
+});//closing document ready function
