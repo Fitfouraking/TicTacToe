@@ -4,6 +4,8 @@ var players = ["X", "O"];//defining players so that I can toggle back & forth be
 $(document).ready(function(){//once document loads...
   var player = 0;//first click will always be "x"
   var count = 0;
+  var xWins = 0;
+  var oWins = 0;
 
 
   var runGame = function() {//This function will allow 1 click per .cell and alternate btw "X" and "O".
@@ -55,6 +57,8 @@ $(document).ready(function(){//once document loads...
     $('#c').text() === "X" &&
     $('#e').text() === "X" &&
     $('#g').text() === "X") {
+        xWins++;
+        $('#xGames').text("X Wins: " + xWins);
         alert("X has won the game");
         reset();
       };
@@ -92,6 +96,8 @@ $(document).ready(function(){//once document loads...
     $('#c').text() === "O" &&
     $('#e').text() === "O" &&
     $('#g').text() === "O") {
+        oWins++;
+        $('#oGames').text("0 Wins: " + oWins);
         alert("O has won the game");
         reset();
       };
@@ -109,8 +115,22 @@ $(document).ready(function(){//once document loads...
   count = 0;
   player = 0;
   $('.cell').off();
+
   runGame();
   };
+
+
+$('#resetGameCount').on("click", function() {
+  $('.cell').text("");
+  count = 0;
+  player = 0;
+  xWins = 0;
+  oWins = 0;
+  $('#xGames').text(xWins);
+  $('#oGames').text(oWins);
+  $('.cell').off();
+  runGame();
+});
 
 
 });//closing document ready function
