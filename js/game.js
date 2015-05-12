@@ -1,6 +1,8 @@
 
 var players = ["X", "O"];//defining players so that I can toggle back & forth between "X" and "O" by calling index value.
 
+var playerImage = ['<img src ="image/redSox.png">', '<img src ="image/yankees.gif">']
+
 $(document).ready(function(){//once document loads...
   var player = 0;//first click will always be "x"
   var count = 0;
@@ -10,11 +12,12 @@ $(document).ready(function(){//once document loads...
 
   var runGame = function() {//This function will allow 1 click per .cell and alternate btw "X" and "O".
     $('.cell').one("click", function(){//one click will generate the following even, only ONCE.
-    if ($(this).text() === "") {//this line becomes extraneous once I changed .on to .one in the line above.
-      $(this).text(players[player]);
+    if ($(this).html() === "") {//this line becomes extraneous once I changed .on to .one in the line above.
+      $(this).html(playerImage[player]);
+      $(this).data('players', players[player]);
       player = 1 - player;
     }
-    count++;//count needs to be befire the test functions because we need to record the count value before we check those conditions.
+    count++;//count needs to be before the test functions because we need to record the count value before we check those conditions.
     xWinner();//calling this function checks to see if any of the "X" win conditions are met.
     oWinner();//calling this function checks to see if any of the "O" win conditions are met.
     isTieGame();//calling function to check if all 9 cells have been clicked w/o either xWinner or Owinner firing.
@@ -26,79 +29,79 @@ $(document).ready(function(){//once document loads...
   runGame();//calling the function.
 
   var xWinner = function() {//checking all 8 possible scenarios for "X" wins.
-  if ($('#a').text() === "X" &&
-    $('#b').text() === "X" &&
-    $('#c').text() === "X" ||
+  if ($('#a').data('players') === "X" &&
+    $('#b').data('players') === "X" &&
+    $('#c').data('players') === "X" ||
 
-    $('#d').text() === "X" &&
-    $('#e').text() === "X" &&
-    $('#f').text() === "X" ||
+    $('#d').data('players') === "X" &&
+    $('#e').data('players') === "X" &&
+    $('#f').data('players') === "X" ||
 
-    $('#g').text() === "X" &&
-    $('#h').text() === "X" &&
-    $('#i').text() === "X" ||
+    $('#g').data('players') === "X" &&
+    $('#h').data('players') === "X" &&
+    $('#i').data('players') === "X" ||
 
-    $('#a').text() === "X" &&
-    $('#d').text() === "X" &&
-    $('#g').text() === "X" ||
+    $('#a').data('players') === "X" &&
+    $('#d').data('players') === "X" &&
+    $('#g').data('players') === "X" ||
 
-    $('#b').text() === "X" &&
-    $('#e').text() === "X" &&
-    $('#h').text() === "X" ||
+    $('#b').data('players') === "X" &&
+    $('#e').data('players') === "X" &&
+    $('#h').data('players') === "X" ||
 
-    $('#c').text() === "X" &&
-    $('#f').text() === "X" &&
-    $('#i').text() === "X" ||
+    $('#c').data('players') === "X" &&
+    $('#f').data('players') === "X" &&
+    $('#i').data('players') === "X" ||
 
-    $('#a').text() === "X" &&
-    $('#e').text() === "X" &&
-    $('#i').text() === "X" ||
+    $('#a').data('players') === "X" &&
+    $('#e').data('players') === "X" &&
+    $('#i').data('players') === "X" ||
 
-    $('#c').text() === "X" &&
-    $('#e').text() === "X" &&
-    $('#g').text() === "X") {
+    $('#c').data('players') === "X" &&
+    $('#e').data('players') === "X" &&
+    $('#g').data('players') === "X") {
         xWins++;
         $('#xGames').text("X Wins: " + xWins);
-        alert("X has won the game");
+        alert("Red Sox Win!!");
         reset();
       };
   };
 
   var oWinner = function() {//checking all 8 possible scenarios for "O" wins.
-  if ($('#a').text() === "O" &&
-    $('#b').text() === "O" &&
-    $('#c').text() === "O" ||
+  if ($('#a').data('players') === "O" &&
+    $('#b').data('players') === "O" &&
+    $('#c').data('players') === "O" ||
 
-    $('#d').text() === "O" &&
-    $('#e').text() === "O" &&
-    $('#f').text() === "O" ||
+    $('#d').data('players') === "O" &&
+    $('#e').data('players') === "O" &&
+    $('#f').data('players') === "O" ||
 
-    $('#g').text() === "O" &&
-    $('#h').text() === "O" &&
-    $('#i').text() === "O" ||
+    $('#g').data('players') === "O" &&
+    $('#h').data('players') === "O" &&
+    $('#i').data('players') === "O" ||
 
-    $('#a').text() === "O" &&
-    $('#d').text() === "O" &&
-    $('#g').text() === "O" ||
+    $('#a').data('players') === "O" &&
+    $('#d').data('players') === "O" &&
+    $('#g').data('players') === "O" ||
 
-    $('#b').text() === "O" &&
-    $('#e').text() === "O" &&
-    $('#h').text() === "O" ||
+    $('#b').data('players') === "O" &&
+    $('#e').data('players') === "O" &&
+    $('#h').data('players') === "O" ||
 
-    $('#c').text() === "O" &&
-    $('#f').text() === "O" &&
-    $('#i').text() === "O" ||
+    $('#c').data('players') === "O" &&
+    $('#f').data('players') === "O" &&
+    $('#i').data('players') === "O" ||
 
-    $('#a').text() === "O" &&
-    $('#e').text() === "O" &&
-    $('#i').text() === "O" ||
+    $('#a').data('players') === "O" &&
+    $('#e').data('players') === "O" &&
+    $('#i').data('players') === "O" ||
 
-    $('#c').text() === "O" &&
-    $('#e').text() === "O" &&
-    $('#g').text() === "O") {
+    $('#c').data('players') === "O" &&
+    $('#e').data('players') === "O" &&
+    $('#g').data('players') === "O") {
         oWins++;
         $('#oGames').text("0 Wins: " + oWins);
-        alert("O has won the game");
+        alert("Yankees Win!!");
         reset();
       };
   };
@@ -111,7 +114,8 @@ $(document).ready(function(){//once document loads...
   }
 
   var reset = function() {//This function resets all cells to empty strings, restarts count, and makes sure 1st player move will always be "X".
-  $('.cell').text("");
+  $('.cell').html("");
+  $('.cell').data("players", null);
   count = 0;
   player = 0;
   $('.cell').off();
@@ -121,7 +125,8 @@ $(document).ready(function(){//once document loads...
 
 
 $('#resetGameCount').on("click", function() {
-  $('.cell').text("");
+  $('.cell').html("");
+  $('.cell').data("players", null);
   count = 0;
   player = 0;
   xWins = 0;

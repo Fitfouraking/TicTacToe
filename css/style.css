@@ -1,5 +1,12 @@
 body {
   width: 100%;
+  background-image: url(../image/fenway.jpg);
+  background-size: cover;
+}
+
+h1 {
+  color: white;
+  outline-color: red;
 }
 
 #container {
@@ -17,11 +24,15 @@ body {
   border: 5px solid white;
   width: 150px;
   height: 150px;
-  background-color: pink;
+  background-color: rgba(255,255,255,0.33);
   float: left;
 }
 
 #scoreboard {
   text-align: center;
+  color: white;
+  background-color: rgba(150,200,200,0.5);
+  border: 5px solid white;
+  padding-bottom: 10px;
 }
 
