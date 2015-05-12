@@ -1,24 +1,29 @@
-//We need to use document
-//on click you generate an event, the event handler is the function
 
-var players = ["X", "O"];
+var players = ["X", "O"];//defining players so that I can toggle back & forth between "X" and "O" by calling index value.
 
-$(document).ready(function(){
-  var player = 0;
+$(document).ready(function(){//once document loads...
+  var player = 0;//first click will always be "x"
   var count = 0;
 
-  $('.cell').one("click", function(){
-    if ($(this).text() === "") {
+
+  var runGame = function() {//This function will allow 1 click per .cell and alternate btw "X" and "O".
+    $('.cell').one("click", function(){//one click will generate the following even, only ONCE.
+    if ($(this).text() === "") {//this line becomes extraneous once I changed .on to .one in the line above.
       $(this).text(players[player]);
       player = 1 - player;
     }
-    xWinner();
-    oWinner();
-    isTieGame();
-    count++;
-  });
+    count++;//count needs to be befire the test functions because we need to record the count value before we check those conditions.
+    xWinner();//calling this function checks to see if any of the "X" win conditions are met.
+    oWinner();//calling this function checks to see if any of the "O" win conditions are met.
+    isTieGame();//calling function to check if all 9 cells have been clicked w/o either xWinner or Owinner firing.
+    console.log(count);
 
-  var xWinner = function() {
+    });
+  }
+
+  runGame();//calling the function.
+
+  var xWinner = function() {//checking all 8 possible scenarios for "X" wins.
   if ($('#a').text() === "X" &&
     $('#b').text() === "X" &&
     $('#c').text() === "X" ||
@@ -55,7 +60,7 @@ $(document).ready(function(){
       };
   };
 
-  var oWinner = function() {
+  var oWinner = function() {//checking all 8 possible scenarios for "O" wins.
   if ($('#a').text() === "O" &&
     $('#b').text() === "O" &&
     $('#c').text() === "O" ||
@@ -92,16 +97,19 @@ $(document).ready(function(){
       };
   };
 
-  var isTieGame = function() {
-    if (count === 8) {
+  var isTieGame = function() {//has the game ended in a draw?
+    if (count === 9) {
       alert("Tie Game")
       reset();
     }
   }
 
-  var reset = function() {
+  var reset = function() {//This function resets all cells to empty strings, restarts count, and makes sure 1st player move will always be "X".
   $('.cell').text("");
   count = 0;
+  player = 0;
+  $('.cell').off();
+  runGame();
   };
 
 
