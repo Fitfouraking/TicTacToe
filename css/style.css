@@ -3,22 +3,25 @@ body {
 }
 
 #container {
-  margin: 10px auto;
-  width: 600px;
+  margin: 0px auto;
+  width: 480px;
 }
 
 #heading {
   text-align: center;
-  font-family: 'Finger Paint', cursive;
   font-size: 50px;
 }
 
 
 .cell {
-  border: 1px solid black;
+  border: 5px solid white;
   width: 150px;
   height: 150px;
   background-color: pink;
   float: left;
+}
+
+#scoreboard {
+  text-align: center;
 }
 
