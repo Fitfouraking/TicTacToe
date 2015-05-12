@@ -1,11 +1,10 @@
 body {
   width: 100%;
-  background-image:url('../img/wavegrid.png');
 }
 
 #container {
   margin: 10px auto;
-  width: 800px;
+  width: 600px;
 }
 
 #heading {
@@ -14,15 +13,12 @@ body {
   font-size: 50px;
 }
 
-.row {
-  margin: 0px auto;
-  float: left;
-}
 
 .cell {
   border: 1px solid black;
   width: 150px;
   height: 150px;
   background-color: pink;
+  float: left;
 }
 
