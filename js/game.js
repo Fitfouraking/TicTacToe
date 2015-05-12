@@ -6,13 +6,16 @@ var players = ["X", "O"];
 $(document).ready(function(){
   var player = 0;
   var count = 0;
-  $('.cell').on("click", function(){
+
+  $('.cell').one("click", function(){
     if ($(this).text() === "") {
       $(this).text(players[player]);
       player = 1 - player;
     }
-  xWinner();
-  oWinner();
+    xWinner();
+    oWinner();
+    isTieGame();
+    count++;
   });
 
   var xWinner = function() {
@@ -88,6 +91,13 @@ $(document).ready(function(){
         reset();
       };
   };
+
+  var isTieGame = function() {
+    if (count === 8) {
+      alert("Tie Game")
+      reset();
+    }
+  }
 
   var reset = function() {
   $('.cell').text("");
