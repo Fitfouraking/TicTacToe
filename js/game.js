@@ -18,6 +18,7 @@ $(document).ready(function(){//once DOM loads execute the following...
       player = 1 - player;//this will ensure that index of var players alternates btw 1 and 0, hence "X" and "O".
     }
     count++;//count needs to be before the test functions because we need to record the count value before we check those conditions.
+    $('#shake').removeClass('animated wobble animated flipInX');
     xWinner();//calling this function checks to see if any of the "X" win conditions are met.
     oWinner();//calling this function checks to see if any of the "O" win conditions are met.
     isTieGame();//calling function to check if all 9 cells have been clicked w/o either xWinner or Owinner firing.
@@ -62,6 +63,7 @@ $(document).ready(function(){//once DOM loads execute the following...
     $('#g').data('players') === "X") {
         xWins++;
         $('#soxScore').text(xWins);//if "X" wins, print the integer xWins in the scoreboard area.
+        $('#shake').addClass('animated wobble');
         reset();
       };
   };
@@ -100,6 +102,7 @@ $(document).ready(function(){//once DOM loads execute the following...
     $('#g').data('players') === "O") {
         oWins++;
         $('#yankScore').text(oWins);//if "O" wins, print the integer xWins in the scoreboard area.
+        $('#shake').addClass('animated wobble');
         reset();
       };
   };
