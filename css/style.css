@@ -6,7 +6,6 @@ body {
 
 h1 {
   color: white;
-  outline-color: red;
 }
 
 #container {
@@ -31,8 +30,43 @@ h1 {
 #scoreboard {
   text-align: center;
   color: white;
-  background-color: rgba(150,200,200,0.5);
+ margin-bottom: 10px;
+}
+
+#soxScore {
+  text-align: center;
+  color: white;
+  padding-top: 8px;
+  border: 4px 0px 0px 0px;
+  background-color: rgba(255,255,255,0.33);
+  height: 40px;
+  width: 145px;
+  display: block;
+  float: left;
   border: 5px solid white;
-  padding-bottom: 10px;
+  margin-bottom: 20px;
+
+}
+
+#yankScore {
+  text-align: center;
+  color: white;
+  padding-top: 8px;
+  background-color: rgba(255,255,255,0.33);
+  height: 40px;
+  width: 140px;
+  display: block;
+  float: right;
+  border: 5px solid white;
+  margin-bottom: 20px;
+}
+
+#yankLogo {
+  float: right;
+}
+
+#resetGameCount {
+  float: right;
+  margin-right: 5%;
 }
 

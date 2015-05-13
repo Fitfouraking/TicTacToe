@@ -1,21 +1,21 @@
 
 var players = ["X", "O"];//defining players so that I can toggle back & forth between "X" and "O" by calling index value.
 
-var playerImage = ['<img src ="image/redSox.png">', '<img src ="image/yankees.gif">']
+var playerImage = ['<img src ="image/redSox.png">', '<img src ="image/yankees.gif">']//defining playerImage as an array that contains the redsox image & yankees image.
 
-$(document).ready(function(){//once document loads...
-  var player = 0;//first click will always be "x"
-  var count = 0;
-  var xWins = 0;
+$(document).ready(function(){//once DOM loads execute the following...
+  var player = 0;//first click will always be "x" (redsox image)
+  var count = 0;//keeps track of clicks, because I use this to determine the "Tie" scenario in later function called isTieGame.
+  var xWins = 0;//Default set the number of game wins for both "X" and "O" to zero, by adding 1 to this count after each win scenario fires, this is what will be displayed in the html scoreboard section.
   var oWins = 0;
 
 
   var runGame = function() {//This function will allow 1 click per .cell and alternate btw "X" and "O".
-    $('.cell').one("click", function(){//one click will generate the following even, only ONCE.
+    $('.cell').one("click", function(){//one click method will generate the following event, only ONCE.
     if ($(this).html() === "") {//this line becomes extraneous once I changed .on to .one in the line above.
-      $(this).html(playerImage[player]);
-      $(this).data('players', players[player]);
-      player = 1 - player;
+      $(this).html(playerImage[player]);//actually displays the image by inserting into the html.
+      $(this).data('players', players[player]);//sets object 'this' with name of players and value of players[player].
+      player = 1 - player;//this will ensure that index of var players alternates btw 1 and 0, hence "X" and "O".
     }
     count++;//count needs to be before the test functions because we need to record the count value before we check those conditions.
     xWinner();//calling this function checks to see if any of the "X" win conditions are met.
@@ -61,8 +61,7 @@ $(document).ready(function(){//once document loads...
     $('#e').data('players') === "X" &&
     $('#g').data('players') === "X") {
         xWins++;
-        $('#xGames').text("X Wins: " + xWins);
-        alert("Red Sox Win!!");
+        $('#soxScore').text(xWins);//if "X" wins, print the integer xWins in the scoreboard area.
         reset();
       };
   };
@@ -100,15 +99,14 @@ $(document).ready(function(){//once document loads...
     $('#e').data('players') === "O" &&
     $('#g').data('players') === "O") {
         oWins++;
-        $('#oGames').text("0 Wins: " + oWins);
-        alert("Yankees Win!!");
+        $('#yankScore').text(oWins);//if "O" wins, print the integer xWins in the scoreboard area.
         reset();
       };
   };
 
   var isTieGame = function() {//has the game ended in a draw?
     if (count === 9) {
-      alert("Tie Game")
+      alert("On To Extra Innings, Folks...")
       reset();
     }
   }
@@ -131,8 +129,8 @@ $('#resetGameCount').on("click", function() {
   player = 0;
   xWins = 0;
   oWins = 0;
-  $('#xGames').text(xWins);
-  $('#oGames').text(oWins);
+  $('#soxScore').text("");
+  $('#yankScore').text("");
   $('.cell').off();
   runGame();
 });
