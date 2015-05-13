@@ -64,7 +64,7 @@ $(document).ready(function(){//once DOM loads execute the following...
         xWins++;
         $('#soxScore').text(xWins);//if "X" wins, print the integer xWins in the scoreboard area.
         $('#shake').addClass('animated wobble');
-        reset();
+        setTimeout(function() {reset();}, 3000);
       };
   };
 
@@ -103,14 +103,15 @@ $(document).ready(function(){//once DOM loads execute the following...
         oWins++;
         $('#yankScore').text(oWins);//if "O" wins, print the integer xWins in the scoreboard area.
         $('#shake').addClass('animated wobble');
-        reset();
+        setTimeout(function() {reset();}, 3000);
       };
   };
 
   var isTieGame = function() {//has the game ended in a draw?
     if (count === 9) {
       alert("On To Extra Innings, Folks...")
-      reset();
+      $('#shake').addClass('animated wobble');
+      setTimeout(function() {reset();}, 3000);
     }
   }
 
