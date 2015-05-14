@@ -7,15 +7,15 @@ This game is a modern twist on an old classic. Tic Tac Toe is a turn base two pl
 In this version, the first player to move is "Red Sox" and the second player is "Yankees." The game board automatically resets at the conclusion of each game and records each players' win count in the scoreboard below the grid. Either player can reset the game count to zero by clicking the button in the scoreboard area.
 
 ### User Story:
-Objective: Make a tic tac toe multi-player game that allows 2 users to compete.
+Objective: Make a tic tac toe multi-player game that allows two users to compete.
 
--Player 1 can put an "x" (redsox image) on the gameboard.
--Player 2 can put an "o" (yankees image) on the gameboard.
--Scoreboard displays winner game count to users.
--User can click on a reset button.
+1.) Player One can put an "x" (redsox image) on the gameboard.
+2.) Player two can put an "o" (yankees image) on the gameboard.
+3.) Scoreboard displays winner game count to users.
+4.) User can click on a reset button.
 
 ### Approach
-I took the "brute force" approach. This made the most sense for me to actually write out all of the 8 possible winning combinations for each player. To test if the game ends in a tie, I added a variable "count", set its value to zero, and then added 1 to this upon each turn/click. I used the jQuery data method to store data associated with each of the elements or indivudual cells within the grid. I did not use .html() or .text() because I did not want to actually print the "x" or "o" within the HTML, only store the data and compare it to my "check for winner" functions.
+I took the "brute force" approach. This made the most sense for me to actually write out all of the 8 possible winning combinations for each player. To test if the game ends in a tie, I added a variable "count", set its value to zero, and then added 1 to this upon each turn/click. I used the jQuery data method to store data associated with each of the elements or indivudual cells within the grid. I did not use .html or .text because I did not want to actually print the "x" or "o" within the HTML, only store the data and compare it to my "check for winner" functions.
 
 
 ### Unsolved Problems
