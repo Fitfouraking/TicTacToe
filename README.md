@@ -20,3 +20,6 @@ I took the "brute force" approach. This made the most sense for me to actually w
 
 ### Unsolved Problems
 If I were to start again from scratch, I would render my board grid using a table rather than separate divs. This would make it much easier to implement Bootstrap into my layout. While not necessary to have bootstrap to do so, I would also split my scoreboard to display each players' wins on either side of the board, which would clean up the user experience. Also, I repeat a lot of code within my xWinner and oWinner conditions - ideally this could be simplified to a single function.
+
+###Firebase Integration
+Visit the following website to play: https://redsox.firebaseapp.com/

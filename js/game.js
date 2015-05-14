@@ -11,18 +11,17 @@ $(document).ready(function(){//once DOM loads execute the following...
 
   var runGame = function() {//This function will allow 1 click per .cell and alternate btw "X" and "O".
     $('.cell').one("click", function(){//one click method will generate the following event, only ONCE.
-    if ($(this).html() === "") {//this line becomes extraneous once I changed .on to .one in the line above.
-      $(this).html(playerImage[player]);//actually displays the image by inserting into the html.
-      $(this).data('players', players[player]);//sets object 'this' with name of players and value of players[player].
-      player = 1 - player;//this will ensure that index of var players alternates btw 1 and 0, hence "X" and "O".
-    }
-    count++;//count needs to be before the test functions because we need to record the count value before we check those conditions.
-    $('#shake').removeClass('animated wobble animated flipInX');
-    xWinner();//calling this function checks to see if any of the "X" win conditions are met.
-    oWinner();//calling this function checks to see if any of the "O" win conditions are met.
-    isTieGame();//calling function to check if all 9 cells have been clicked w/o either xWinner or Owinner firing.
-    console.log(count);
-
+      if ($(this).html() === "") {//this line becomes extraneous once I changed .on to .one in the line above.
+        $(this).html(playerImage[player]);//actually displays the image by inserting into the html.
+        $(this).data('players', players[player]);//sets object 'this' with name of players and value of players[player].
+        player = 1 - player;//this will ensure that index of var players alternates btw 1 and 0, hence "X" and "O".
+      }
+      count++;//count needs to be before the test functions because we need to record the count value before we check those conditions.
+      $('#shake').removeClass('animated wobble animated flipInX');
+      xWinner();//calling this function checks to see if any of the "X" win conditions are met.
+      oWinner();//calling this function checks to see if any of the "O" win conditions are met.
+      isTieGame();//calling function to check if all 9 cells have been clicked w/o either xWinner or Owinner firing.
+      console.log(count);
     });
   }
 
