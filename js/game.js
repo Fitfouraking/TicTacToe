@@ -1,6 +1,5 @@
 
 var players = ["X", "O"];//defining players so that I can toggle back & forth between "X" and "O" by calling index value.
-
 var playerImage = ['<img src ="image/redSox.png">', '<img src ="image/yankees.gif">']//defining playerImage as an array that contains the redsox image & yankees image.
 
 $(document).ready(function(){//once DOM loads execute the following...
@@ -30,37 +29,37 @@ $(document).ready(function(){//once DOM loads execute the following...
   runGame();//calling the function.
 
   var xWinner = function() {//checking all 8 possible scenarios for "X" wins.
-  if ($('#a').data('players') === "X" &&
-    $('#b').data('players') === "X" &&
-    $('#c').data('players') === "X" ||
+    if ($('#a').data('players') === "X" &&
+      $('#b').data('players') === "X" &&
+      $('#c').data('players') === "X" ||
 
-    $('#d').data('players') === "X" &&
-    $('#e').data('players') === "X" &&
-    $('#f').data('players') === "X" ||
+      $('#d').data('players') === "X" &&
+      $('#e').data('players') === "X" &&
+      $('#f').data('players') === "X" ||
 
-    $('#g').data('players') === "X" &&
-    $('#h').data('players') === "X" &&
-    $('#i').data('players') === "X" ||
+      $('#g').data('players') === "X" &&
+      $('#h').data('players') === "X" &&
+      $('#i').data('players') === "X" ||
 
-    $('#a').data('players') === "X" &&
-    $('#d').data('players') === "X" &&
-    $('#g').data('players') === "X" ||
+      $('#a').data('players') === "X" &&
+      $('#d').data('players') === "X" &&
+      $('#g').data('players') === "X" ||
 
-    $('#b').data('players') === "X" &&
-    $('#e').data('players') === "X" &&
-    $('#h').data('players') === "X" ||
+      $('#b').data('players') === "X" &&
+      $('#e').data('players') === "X" &&
+      $('#h').data('players') === "X" ||
 
-    $('#c').data('players') === "X" &&
-    $('#f').data('players') === "X" &&
-    $('#i').data('players') === "X" ||
+      $('#c').data('players') === "X" &&
+      $('#f').data('players') === "X" &&
+      $('#i').data('players') === "X" ||
 
-    $('#a').data('players') === "X" &&
-    $('#e').data('players') === "X" &&
-    $('#i').data('players') === "X" ||
+      $('#a').data('players') === "X" &&
+      $('#e').data('players') === "X" &&
+      $('#i').data('players') === "X" ||
 
-    $('#c').data('players') === "X" &&
-    $('#e').data('players') === "X" &&
-    $('#g').data('players') === "X") {
+      $('#c').data('players') === "X" &&
+      $('#e').data('players') === "X" &&
+      $('#g').data('players') === "X") {
         xWins++;
         $('#soxScore').text(xWins);//if "X" wins, print the integer xWins in the scoreboard area.
         $('#shake').addClass('animated wobble');
@@ -69,37 +68,37 @@ $(document).ready(function(){//once DOM loads execute the following...
   };
 
   var oWinner = function() {//checking all 8 possible scenarios for "O" wins.
-  if ($('#a').data('players') === "O" &&
-    $('#b').data('players') === "O" &&
-    $('#c').data('players') === "O" ||
+    if ($('#a').data('players') === "O" &&
+      $('#b').data('players') === "O" &&
+      $('#c').data('players') === "O" ||
 
-    $('#d').data('players') === "O" &&
-    $('#e').data('players') === "O" &&
-    $('#f').data('players') === "O" ||
+      $('#d').data('players') === "O" &&
+      $('#e').data('players') === "O" &&
+      $('#f').data('players') === "O" ||
 
-    $('#g').data('players') === "O" &&
-    $('#h').data('players') === "O" &&
-    $('#i').data('players') === "O" ||
+      $('#g').data('players') === "O" &&
+      $('#h').data('players') === "O" &&
+      $('#i').data('players') === "O" ||
 
-    $('#a').data('players') === "O" &&
-    $('#d').data('players') === "O" &&
-    $('#g').data('players') === "O" ||
+      $('#a').data('players') === "O" &&
+      $('#d').data('players') === "O" &&
+      $('#g').data('players') === "O" ||
 
-    $('#b').data('players') === "O" &&
-    $('#e').data('players') === "O" &&
-    $('#h').data('players') === "O" ||
+      $('#b').data('players') === "O" &&
+      $('#e').data('players') === "O" &&
+      $('#h').data('players') === "O" ||
 
-    $('#c').data('players') === "O" &&
-    $('#f').data('players') === "O" &&
-    $('#i').data('players') === "O" ||
+      $('#c').data('players') === "O" &&
+      $('#f').data('players') === "O" &&
+      $('#i').data('players') === "O" ||
 
-    $('#a').data('players') === "O" &&
-    $('#e').data('players') === "O" &&
-    $('#i').data('players') === "O" ||
+      $('#a').data('players') === "O" &&
+      $('#e').data('players') === "O" &&
+      $('#i').data('players') === "O" ||
 
-    $('#c').data('players') === "O" &&
-    $('#e').data('players') === "O" &&
-    $('#g').data('players') === "O") {
+      $('#c').data('players') === "O" &&
+      $('#e').data('players') === "O" &&
+      $('#g').data('players') === "O") {
         oWins++;
         $('#yankScore').text(oWins);//if "O" wins, print the integer xWins in the scoreboard area.
         $('#shake').addClass('animated wobble');
@@ -113,31 +112,30 @@ $(document).ready(function(){//once DOM loads execute the following...
       $('#shake').addClass('animated wobble');
       setTimeout(function() {reset();}, 3000);
     }
-  }
+  };
 
   var reset = function() {//This function resets all cells to empty strings, restarts count, and makes sure 1st player move will always be "X".
-  $('.cell').html("");
-  $('.cell').data("players", null);
-  count = 0;
-  player = 0;
-  $('.cell').off();
-
-  runGame();
+    $('.cell').html("");
+    $('.cell').data("players", null);
+    count = 0;
+    player = 0;
+    $('.cell').off();
+    runGame();
   };
 
 
-$('#resetGameCount').on("click", function() {
-  $('.cell').html("");
-  $('.cell').data("players", null);
-  count = 0;
-  player = 0;
-  xWins = 0;
-  oWins = 0;
-  $('#soxScore').text("");
-  $('#yankScore').text("");
-  $('.cell').off();
-  runGame();
-});
+  $('#resetGameCount').on("click", function() {//When user clicks on "Reset Game Count" button...
+    $('.cell').html("");
+    $('.cell').data("players", null);
+    count = 0;
+    player = 0;
+    xWins = 0;
+    oWins = 0;
+    $('#soxScore').text("");
+    $('#yankScore').text("");
+    $('.cell').off();
+    runGame();
+  });
 
 
 });//closing document ready function
