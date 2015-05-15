@@ -107,7 +107,7 @@ $(document).ready(function(){//once DOM loads execute the following...
 
   var isTieGame = function() {//has the game ended in a draw?
     if (count === 9) {
-      alert("On To Extra Innings, Folks...")
+      // alert("On To Extra Innings, Folks...")
       $('#shake').addClass('animated wobble');
       setTimeout(function() {reset();}, 3000);
     }
